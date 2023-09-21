@@ -16,7 +16,7 @@ function App() {
 
   return (
     <AppContainer>
-      <ImageDetection/>
+      {/* <ImageDetection/> */}
     </AppContainer>
 
     // <>
