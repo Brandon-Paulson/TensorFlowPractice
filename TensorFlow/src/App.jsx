@@ -1,7 +1,6 @@
 import './App.css';
 import styled from "styled-components";
-import { ObjectDetector } from './components/objectDetector';
-
+import ImageDetection from './components/objectDetector';
 const AppContainer =  styled.div`
 width: 100%;
 height: 100%;
@@ -17,10 +16,7 @@ function App() {
 
   return (
     <AppContainer>
-    <div>
-          <ObjectDetector/>
-
-    </div>
+      {/* <ImageDetection/> */}
     </AppContainer>
 
     // <>
