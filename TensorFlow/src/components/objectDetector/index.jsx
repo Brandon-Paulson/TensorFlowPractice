@@ -1,9 +1,19 @@
 import React, { useRef, useState, useEffect } from "react";
-import * as cocossd from "@tensorflow-models/coco-ssd";
-import { drawRect } from "../utilities";
-import Webcam from "react-webcam";
 import * as _1 from "@tensorflow/tfjs-backend-cpu";
 import * as _2 from "@tensorflow/tfjs-backend-webgl";
+import {loadGraphModel} from '@tensorflow/tfjs-converter';
+import * as cocossd from "@tensorflow-models/coco-ssd";
+import Webcam from "react-webcam";
+import { drawRect } from "../utilities";
+
+async function load_window_model() {
+	// It's possible to load the model locally or from a repo
+	//const model = await loadGraphModel("http://127.0.0.1:8080/model.json");
+	const model = await loadGraphModel("https://raw.githubusercontent.com/CrashAbandoncoot/TensorFlowPractice/main/TensorFlow/window-model/model.json");
+	return model;
+}
+const threshold = 0.50;
+
 
 function ImageDetection() {
     const webcamRef = useRef(null);
@@ -12,12 +22,14 @@ function ImageDetection() {
     // Main function
     const runCoco = async () => {
       // 3. TODO - Load network 
-     const net = await cocossd.load();
-      
+
+    //  const net = await cocossd.load();
+    const net = await load_window_model()  
+
       //  Loop and detect hands
       setInterval(() => {
         detect(net);
-      }, 10);
+      }, 100);
     };
   
     const detect = async (net) => {
@@ -56,6 +68,7 @@ function ImageDetection() {
   
     return (
       <div className="App">
+        <h1>fkfslnfls</h1>
         <header className="App-header">
           <Webcam
             ref={webcamRef}
