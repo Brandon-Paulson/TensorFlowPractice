@@ -2,7 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import * as cocossd from "@tensorflow-models/coco-ssd";
 import { drawRect } from "../utilities";
 import Webcam from "react-webcam";
-
+import * as _1 from "@tensorflow/tfjs-backend-cpu";
+import * as _2 from "@tensorflow/tfjs-backend-webgl";
 
 function ImageDetection() {
     const webcamRef = useRef(null);
